@@ -42,4 +42,19 @@ O(log n) performance.
 Hashtable: Synchronized version of HashMap. Doesn't allow null keys or values. Legacy class.
 
 ConcurrentHashMap: Thread-safe implementation optimized for concurrent access. Better performance than Hashtable in multi-threaded
-environmen
+environment.
+
+// Creating and populating a map
+Map<String, Integer> ages = new HashMap<>();
+ages.put("Alice", 25);
+ages.put("Bob", 30);
+ages.put("Charlie", 35);
+
+// Retrieving values
+Integer aliceAge = ages.get("Alice"); // Returns 25
+Integer unknownAge = ages.get("David"); // Returns null
+
+// Iterating through map
+for(Map.Entry<String, Integer> entry : ages.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
