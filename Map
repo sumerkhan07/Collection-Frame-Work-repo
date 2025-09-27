@@ -1,3 +1,45 @@
 Map Interface
 The Map interface in Java is a fundamental part of the Collections Framework that represents a 
 collection of key-value pairs.
+
+What is Map Interface?
+The Map interface defines a data structure that stores elements as key-value pairs, where each key
+is unique and maps to exactly one value. It's not a true collection (doesn't extend Collection interface)
+but is part of the Collections Framework.
+
+Key Characteristics
+
+Unique Keys: Each key can appear only once in a map. If you try to insert a duplicate key, the old value gets replaced.
+Key-Value.
+
+Mapping: Every key is associated with exactly one value. However, multiple keys can map to the same value.
+No Duplicate Keys: While values can be duplicated, keys must be unique within the map.
+
+Null Handling: Most implementations allow null values, and some allow null keys (except Hashtable and ConcurrentHashMap).
+
+
+The Map interface provides essential methods for manipulation:
+
+put(K key, V value)           // Adds or updates key-value pair
+get(Object key)               // Retrieves value for given key  
+remove(Object key)            // Removes key-value pair
+containsKey(Object key)       // Checks if key exists
+containsValue(Object value)   // Checks if value exists
+keySet()                      // Returns set of all keys
+values()                      // Returns collection of all values
+entrySet()                    // Returns set of key-value pairs
+size()                        // Returns number of mappings
+isEmpty()                     // Checks if map is empty
+clear()                       // Removes all mappings
+
+HashMap: Hash table based implementation. Offers O(1) average performance for basic operations. 
+Allows one null key and multiple null values.
+Not synchronized.
+LinkedHashMap: Extends HashMap but maintains insertion or access order through a doubly-linked list.
+
+TreeMap: Red-black tree based implementation. Keys are sorted according to their natural ordering or a custom Comparator.
+O(log n) performance.
+Hashtable: Synchronized version of HashMap. Doesn't allow null keys or values. Legacy class.
+
+ConcurrentHashMap: Thread-safe implementation optimized for concurrent access. Better performance than Hashtable in multi-threaded
+environmen
