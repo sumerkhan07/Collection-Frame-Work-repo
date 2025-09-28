@@ -1,0 +1,59 @@
+What is  in Java?
+
+Iterator is an interface in the java.util package.
+It provides a way to traverse (iterate) elements one by one from a collection (List, Set, or Queue).
+It is a universal cursor → can be used with any Collection (unlike Enumeration which works only with legacy classes like Vector).
+
+
+Features of Iterator
+Works with Collection objects (List, Set, Queue).
+Forward traversal only (unlike ListIterator which goes both ways).
+Can remove elements while iterating (safe removal).
+Introduced in JDK 1.2 (as part of Collection Framework).
+
+public interface Iterator<E> {
+    boolean hasNext();  // returns true if next element exists
+    E next();           // returns the next element
+    void remove();      // removes the last element returned by next()
+}
+
+Explanation:
+hasNext() → Checks if more elements are present.
+next() → Moves the cursor forward and returns the element.
+remove() → Removes the element returned by the last next() call.
+
+Example of Iterator in Java
+import java.util.*;
+
+public class IteratorExample {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
+        list.add("JavaScript");
+
+        // Get the iterator
+        Iterator<String> itr = list.iterator();
+
+        System.out.println("Iterating the list:");
+        while (itr.hasNext()) {
+            String lang = itr.next();
+            System.out.println(lang);
+
+            // remove element conditionally
+            if (lang.equals("C++")) {
+                itr.remove(); // safe removal
+            }
+        }
+
+        System.out.println("List after removal: " + list);
+    }
+}
+
+nterview-Ready Answer
+Diffrence between for each loop and  Iterator
+“For-each loop is best for read-only access to collections because it is clean and concise. 
+But if I want to remove elements while traversing, then It must use Iterator, since modifying
+a collection inside a for-each loop causes ConcurrentModificationException. Iterator gives me 
+more control with methods like hasNext(), next(), and remove().”
